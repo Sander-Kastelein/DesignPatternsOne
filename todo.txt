@@ -1,0 +1,8 @@
+=====================================================
+  TODO
+=====================================================
+
+Fix getList             -> returns pointer to mutable list, should be copy or immutable.
+Add presenter classes   ->
+Add view classes        ->
+Comments plaatsen over 4 principes en subprincipes OOP. (niet SOLID)
