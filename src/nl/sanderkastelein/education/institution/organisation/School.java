@@ -3,6 +3,7 @@ package nl.sanderkastelein.education.institution.organisation;
 import nl.sanderkastelein.education.institution.education.Education;
 import nl.sanderkastelein.education.institution.education.EducationProviderInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class School implements EducationProviderInterface {
@@ -13,10 +14,10 @@ public class School implements EducationProviderInterface {
 
     private List<Education> educations;
 
-    public School(String name, String description, List<Education> educations) {
+    public School(String name, String description) {
         this.name = name;
         this.description = description;
-        this.educations = educations;
+        this.educations = new ArrayList<>();
     }
 
     @Override

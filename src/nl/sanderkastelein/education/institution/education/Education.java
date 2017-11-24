@@ -16,9 +16,9 @@ public class Education {
     /**
      * @param name name of the education
      */
-    public Education(String name, List<Course> courseList) {
+    public Education(String name) {
         this.name = name;
-        this.courseList = courseList;
+        this.courseList = new ArrayList<>();
         this.studentList = new ArrayList<>();
     }
 
