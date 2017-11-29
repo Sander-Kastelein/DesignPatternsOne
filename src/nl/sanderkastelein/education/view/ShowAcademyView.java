@@ -30,10 +30,10 @@ public class ShowAcademyView extends AbstractView{
                 "Terug"
         })){
             case 0:
-                // List schools
+                (new ListSchoolsView(academy.getSchools())).run();
                 break;
             case 1:
-                // List educations
+                (new ListEducationsView(academy.getEducations())).run();
                 break;
         }
 

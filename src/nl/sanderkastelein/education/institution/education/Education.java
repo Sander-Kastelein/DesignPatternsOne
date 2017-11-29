@@ -1,11 +1,12 @@
 package nl.sanderkastelein.education.institution.education;
 
 import nl.sanderkastelein.education.institution.people.Student;
+import nl.sanderkastelein.misc.Stringable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Education {
+public class Education implements Stringable{
 
     private String name;
 
@@ -40,5 +41,10 @@ public class Education {
 
     public void addCourse(String courseName, String courseDescription) {
         courseList.add(new Course(this, courseName, courseDescription));
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

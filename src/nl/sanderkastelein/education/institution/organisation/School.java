@@ -2,11 +2,12 @@ package nl.sanderkastelein.education.institution.organisation;
 
 import nl.sanderkastelein.education.institution.education.Education;
 import nl.sanderkastelein.education.institution.education.EducationProviderInterface;
+import nl.sanderkastelein.misc.Stringable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class School implements EducationProviderInterface {
+public class School implements EducationProviderInterface, Stringable {
 
     private String name;
 
@@ -36,5 +37,11 @@ public class School implements EducationProviderInterface {
 
     public String getDescription() {
         return description;
+    }
+
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
