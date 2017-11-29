@@ -6,6 +6,8 @@ public class Student extends AbstractPerson {
 
     private Education education;
 
+    private int points = 0;
+
     public Student(String name, String address, Education education) {
         super(name, address);
         this.education = education;
@@ -14,5 +16,9 @@ public class Student extends AbstractPerson {
 
     public Education getEducation() {
         return education;
+    }
+
+    public int getPoints() {
+        return points;
     }
 }

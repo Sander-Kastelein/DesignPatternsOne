@@ -20,6 +20,10 @@ public class UniversityOfAppliedSciences {
         return academyList;
     }
 
+    public void addAcademy(Academy academy) {
+        this.academyList.add(academy);
+    }
+
     public String getName() {
         return name;
     }

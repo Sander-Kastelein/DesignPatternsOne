@@ -5,6 +5,6 @@ package nl.sanderkastelein.education.view;
  */
 public interface ViewInterface {
 
-    public String render();
+    public void run();
 
 }

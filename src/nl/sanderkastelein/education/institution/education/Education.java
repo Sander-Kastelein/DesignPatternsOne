@@ -37,4 +37,8 @@ public class Education {
     public void addStudent(Student student) {
         studentList.add(student);
     }
+
+    public void addCourse(String courseName, String courseDescription) {
+        courseList.add(new Course(this, courseName, courseDescription));
+    }
 }

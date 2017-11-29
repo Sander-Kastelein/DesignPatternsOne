@@ -2,25 +2,27 @@ package nl.sanderkastelein.education.institution.organisation;
 
 import nl.sanderkastelein.education.institution.education.Education;
 import nl.sanderkastelein.education.institution.education.EducationProviderInterface;
+import nl.sanderkastelein.education.institution.people.Employee;
+import nl.sanderkastelein.misc.Stringable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Academy implements EducationProviderInterface {
+public class Academy implements EducationProviderInterface, Stringable {
 
     private String name;
 
     private String description;
 
-    private List<School> schools;
+    private List<School> schools = new ArrayList<>();
 
-    private List<Education> educations;
+    private List<Education> educations = new ArrayList<>();
 
-    public Academy(String name, String description, List<School> schools, List<Education> educations) {
+    private List<Employee> employeeList = new ArrayList<>();
+
+    public Academy(String name, String description) {
            this.name = name;
            this.description = description;
-           this.schools = schools;
-           this.educations = educations;
     }
 
     public List<Education> getAllEducations() {
@@ -47,11 +49,25 @@ public class Academy implements EducationProviderInterface {
         this.schools.add(school);
     }
 
+    public void addEmployee(String name, String address, String jobTitle) {
+        this.employeeList.add(new Employee(this, name, address, jobTitle));
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String toString() { return name; }
+
+    public List<School> getSchools() {
+        return schools;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 }
