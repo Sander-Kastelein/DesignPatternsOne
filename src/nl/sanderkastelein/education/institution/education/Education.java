@@ -1,12 +1,14 @@
 package nl.sanderkastelein.education.institution.education;
 
 import nl.sanderkastelein.education.institution.people.Student;
+import nl.sanderkastelein.misc.Printable;
 import nl.sanderkastelein.misc.Stringable;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Education implements Stringable{
+public class Education implements Stringable, Printable{
 
     private String name;
 
@@ -35,8 +37,8 @@ public class Education implements Stringable{
         return studentList;
     }
 
-    public void addStudent(Student student) {
-        studentList.add(student);
+    public void addStudent(String name, String address) {
+        studentList.add(new Student(name, address, this));
     }
 
     public void addCourse(String courseName, String courseDescription) {
@@ -46,5 +48,10 @@ public class Education implements Stringable{
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public void print(PrintWriter writer) {
+        writer.write(name);
     }
 }

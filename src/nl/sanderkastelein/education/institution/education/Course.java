@@ -1,6 +1,11 @@
 package nl.sanderkastelein.education.institution.education;
 
-public class Course {
+import nl.sanderkastelein.misc.Printable;
+import nl.sanderkastelein.misc.Stringable;
+
+import java.io.PrintWriter;
+
+public class Course implements Stringable, Printable{
 
     private Education education;
     private String name;
@@ -34,5 +39,15 @@ public class Course {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    @Override
+    public void print(PrintWriter writer) {
+        writer.write(name);
     }
 }

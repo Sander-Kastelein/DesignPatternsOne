@@ -1,6 +1,11 @@
 package nl.sanderkastelein.education.institution.people;
 
-public class AbstractPerson {
+import nl.sanderkastelein.misc.Printable;
+import nl.sanderkastelein.misc.Stringable;
+
+import java.io.PrintWriter;
+
+public class AbstractPerson implements Stringable, Printable{
 
     private String name;
 
@@ -17,5 +22,15 @@ public class AbstractPerson {
 
     public String getAddress() {
         return address;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public void print(PrintWriter writer) {
+        writer.write(this.getName());
     }
 }

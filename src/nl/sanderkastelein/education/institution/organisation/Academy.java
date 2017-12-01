@@ -3,12 +3,14 @@ package nl.sanderkastelein.education.institution.organisation;
 import nl.sanderkastelein.education.institution.education.Education;
 import nl.sanderkastelein.education.institution.education.EducationProviderInterface;
 import nl.sanderkastelein.education.institution.people.Employee;
+import nl.sanderkastelein.misc.Printable;
 import nl.sanderkastelein.misc.Stringable;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Academy implements EducationProviderInterface, Stringable {
+public class Academy implements EducationProviderInterface, Stringable, Printable {
 
     private String name;
 
@@ -41,8 +43,8 @@ public class Academy implements EducationProviderInterface, Stringable {
     }
 
     @Override
-    public void addEducation(Education education) {
-        this.educations.add(education);
+    public void addEducation(String education) {
+        this.educations.add(new Education(education));
     }
 
     public void addSchool(School school) {
@@ -69,5 +71,10 @@ public class Academy implements EducationProviderInterface, Stringable {
 
     public List<Employee> getEmployeeList() {
         return employeeList;
+    }
+
+    @Override
+    public void print(PrintWriter writer) {
+        writer.write(getName());
     }
 }

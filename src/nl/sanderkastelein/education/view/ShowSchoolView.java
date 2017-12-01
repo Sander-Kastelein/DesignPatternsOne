@@ -17,6 +17,24 @@ public class ShowSchoolView extends AbstractView {
 
     @Override
     public void run() {
+        main:
+        while(true) {
+            System.out.println("School naam: " + school.getName());
+            System.out.println("Omschrijving: " + school.getDescription());
+            System.out.println("Hoeveelheid opleidingen: " + school.getEducations().size());
 
+
+            switch (promptOptions(new String[]{
+                    "Laat opleidingen",
+                    "Terug"
+            })) {
+                case 0:
+                    (new ListEducationsView(school)).run();
+                    break;
+                case 1:
+                    break main;
+            }
+
+        }
     }
 }

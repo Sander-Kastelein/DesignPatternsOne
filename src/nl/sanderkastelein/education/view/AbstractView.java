@@ -68,4 +68,9 @@ public abstract class AbstractView implements ViewInterface {
         return scanner.nextLine();
     }
 
+
+    public void loopView(ViewInterface view){
+        while(true){ view.run(); }
+    }
+
 }

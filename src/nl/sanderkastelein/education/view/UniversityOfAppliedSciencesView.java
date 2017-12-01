@@ -14,13 +14,21 @@ public class UniversityOfAppliedSciencesView extends AbstractView {
 
     @Override
     public void run() {
-        System.out.println("Welkom bij de interface voor " + universityOfAppliedSciences.getName());
-            switch(promptOptions(new String[]{"Laat alle academies zien"})) {
-            case 0:
-                (new ListAcademiesView(universityOfAppliedSciences.getAcademyList())).run();
-                break;
-        }
+        main:
+        while(true) {
+            System.out.println("Welkom bij de interface voor " + universityOfAppliedSciences.getName());
+            switch (promptOptions(new String[]{"Laat alle academies zien", "Print", "Exit"})) {
+                case 0:
+                    (new ListAcademiesView(universityOfAppliedSciences.getAcademyList())).run();
+                    break;
+                case 1:
+                    (new PrintView(universityOfAppliedSciences)).run();
 
+                    break;
+                case 2:
+                    break main;
+            }
+        }
     }
 
 

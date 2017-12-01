@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface EducationProviderInterface {
     List<Education> getEducations();
-    void addEducation(Education education);
+    void addEducation(String education);
 }

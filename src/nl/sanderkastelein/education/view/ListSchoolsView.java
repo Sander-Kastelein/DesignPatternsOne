@@ -22,24 +22,29 @@ public class ListSchoolsView extends AbstractView{
 
     @Override
     public void run() {
-        System.out.println("Scholen:");
+        main:
+        while(true) {
+            System.out.println("Scholen:");
 
-        for (School school : schools) {
-            System.out.println("- " + school.getName());
-        }
+            for (School school : schools) {
+                System.out.println("- " + school.getName());
+            }
 
-        switch (promptOptions(new String[]{"Meer informatie over een school", "Voeg een school toe", "Ga terug"})) {
-            case 0:
-                System.out.println("Kies een school");
-                School school = (School) selectStringable(new ArrayList<Stringable>(schools));
-                (new ShowSchoolView(school)).run();
-                break;
-            case 1:
-                String name = promptString("Wat is de naam van de school?");
-                String description = promptString("Wat is de omschrijving van de school?");
-                School newSchool = new School(name, description);
-                schools.add(newSchool);
-                break;
+            switch (promptOptions(new String[]{"Meer informatie over een school", "Voeg een school toe", "Ga terug"})) {
+                case 0:
+                    System.out.println("Kies een school");
+                    School school = (School) selectStringable(new ArrayList<Stringable>(schools));
+                    (new ShowSchoolView(school)).run();
+                    break;
+                case 1:
+                    String name = promptString("Wat is de naam van de school?");
+                    String description = promptString("Wat is de omschrijving van de school?");
+                    School newSchool = new School(name, description);
+                    schools.add(newSchool);
+                    break;
+                case 2:
+                    break main;
+            }
         }
     }
 }

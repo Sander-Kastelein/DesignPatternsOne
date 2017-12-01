@@ -20,26 +20,30 @@ public class ListAcademiesView extends AbstractView{
 
     @Override
     public void run() {
-        System.out.println("Academies:");
+        main:
+        while(true) {
+            System.out.println("Academies:");
 
-        for(Academy academy: academies) {
-            System.out.println("- " + academy.getName());
+            for (Academy academy : academies) {
+                System.out.println("- " + academy.getName());
+            }
+
+            switch (promptOptions(new String[]{"Meer informatie over een academie", "Voeg een academie toe", "Ga terug"})) {
+                case 0:
+                    System.out.println("Kies een academie");
+                    Academy academy = (Academy) selectStringable(new ArrayList<Stringable>(academies));
+                    (new ShowAcademyView(academy)).run();
+                    break;
+                case 1:
+                    String name = promptString("Wat is de naam van de academie?");
+                    String description = promptString("Wat is de beschrijving van " + name + "?");
+                    Academy newAcademy = new Academy(name, description);
+                    academies.add(newAcademy);
+                    break;
+                case 2:
+                    break main;
+            }
         }
-
-        switch(promptOptions(new String[] {"Meer informatie over een academie", "Voeg een academie toe", "Ga terug"})){
-            case 0:
-                System.out.println("Kies een academie");
-                Academy academy = (Academy)selectStringable(new ArrayList<Stringable>(academies));
-                (new ShowAcademyView(academy)).run();
-                break;
-            case 1:
-                String name = promptString("Wat is de naam van de academie?");
-                String description = promptString("Wat is de beschrijving van " + name + "?");
-                Academy newAcademy = new Academy(name, description);
-                academies.add(newAcademy);
-                break;
-        }
-
     }
 
 

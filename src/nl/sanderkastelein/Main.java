@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         // load some hardcoded data
-
+        
         UniversityOfAppliedSciences nhl = new UniversityOfAppliedSciences("NHL Stenden Hogeschool");
 
         Academy academy = new Academy(
@@ -21,9 +21,11 @@ public class Main {
         School school = new School("School of ICT", "School voor ICT");
         Education education = new Education("HBO ICT");
 
+
+
         education.addCourse("Design Patterns 1", "Learn about programming design patterns.");
 
-        school.addEducation(education);
+        school.addEducation("HBO ICT1");
         academy.addSchool(school);
         academy.addEmployee("Henk de Jong", "Brink 1, 1000AA Amsterdam", "TA");
 
@@ -31,8 +33,7 @@ public class Main {
         nhl.addAcademy(academy);
 
         UniversityOfAppliedSciencesView universityOfAppliedSciencesView = new UniversityOfAppliedSciencesView(nhl);
-        while(true) {
-            universityOfAppliedSciencesView.run();
-        }
+
+        universityOfAppliedSciencesView.run();
     }
 }
